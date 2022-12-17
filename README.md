@@ -40,3 +40,8 @@ export TELEGRAM_APITOKEN=YOUR_TOKEN
 [DDG Email Panel](https://github.com/whatk233/ddg-email-panel)
 
 [ddg-get-api-token](https://github.com/timedin-de/ddg-get-api-token)
+
+
+##
+
+[![Star History Chart](https://api.star-history.com/svg?repos=xooxoodark/ddg-email-bot&type=Date)](https://star-history.com/#xooxoodark/ddg-email-bot&Date)
