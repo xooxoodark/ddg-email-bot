@@ -1,11 +1,14 @@
 # DuckDuckGo Email Bot
+
 ![GitHub Repo stars](https://github.com/xooxoodark/ddg-email-bot?style=social)
 
 ## Features
+
 * No More DuckDuckGo Browser Extension
 * Single Binary File and A Bot Under Ur Management
 
 ## DemoBOT
+
 [DuckDuckGoEmailBot](https://t.me/duckduckgoemail_bot)
 
 ## Deployment
