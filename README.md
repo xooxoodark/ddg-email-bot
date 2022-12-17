@@ -13,8 +13,15 @@
 
 ## Deployment
 
-1. Compile
+0. Get A UserName From DuckDuckGO Email
+
 ```
+visited https://duckduckgo.com/email
+```
+
+1. Compile
+
+```bash
 git clone https://github.com/xooxoodark/ddg-email-bot.git
 
 cd ddg-email-bot
@@ -22,7 +29,8 @@ CGO_ENABLED=0 go build -trimpath  -ldflags "-s -w"
 ```
 
 2. Run
-```
+
+```bash
 export TELEGRAM_APITOKEN=YOUR_TOKEN
 ./ddg-email-bot
 ```
