@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"github.com/go-resty/resty/v2"
+	log "github.com/sirupsen/logrus"
 )
 
 var baseurl = "https://quack.duckduckgo.com/"
@@ -12,12 +12,9 @@ var client = resty.New()
 func RequestOTP(UserName string) {
 	var params = map[string]string{}
 	params["user"] = UserName
-	rq, err := client.R().SetQueryParams(params).Get(baseurl + "api/auth/loginlink")
+	_, err := client.R().SetQueryParams(params).Get(baseurl + "api/auth/loginlink")
 	if err != nil {
-		fmt.Println(err)
-	}
-	if rq.StatusCode() != 200 {
-		fmt.Println(rq.String())
+		log.Error(err)
 	}
 }
 

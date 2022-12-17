@@ -52,7 +52,7 @@ func main() {
 			if update.Message.Chat.IsGroup() || update.Message.Chat.IsSuperGroup() {
 				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Not Supported \n Pls DM")
 				if _, err = bot.Send(msg); err != nil {
-					fmt.Println(err)
+					log.Error(err)
 					continue
 				}
 				continue
@@ -62,7 +62,7 @@ func main() {
 				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "欢迎食用DuckDuckGOEmailBOT\n,可以借助本BOT创建匿名邮箱，请先到DuckDuckGoEmail先行注册")
 				msg.ReplyMarkup = numericKeyboard
 				if _, err = bot.Send(msg); err != nil {
-					fmt.Println(err)
+					log.Error(err)
 				}
 			case "del":
 				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "输入存在问题 请/del 用户名 输入\n Error Input, Please follow /del Username style, try again")
@@ -77,7 +77,7 @@ func main() {
 					msg.Text = "已删除\nDeleted"
 				}
 				if _, err = bot.Send(msg); err != nil {
-					fmt.Println(err)
+					log.Error(err)
 				}
 			case "add":
 				args := strings.Split(update.Message.Text, " ")
@@ -98,7 +98,7 @@ func main() {
 
 				}
 				if _, err = bot.Send(msg); err != nil {
-					fmt.Println(err)
+					log.Error(err)
 				}
 			}
 			if !update.Message.IsCommand() {
@@ -111,19 +111,19 @@ func main() {
 						db.Save(&waittop)
 						token, err := GetToken(strings.Join(opts, "-"), waittop.UserName)
 						if err != nil {
-							fmt.Println(err)
+							log.Error(err)
 						}
 						db.Create(&Token{Token: token, TID: update.Message.Chat.ID, UserName: waittop.UserName})
 						msg := tgbotapi.NewMessage(update.Message.Chat.ID, fmt.Sprintf("添加 %s 成功 请点击List查看\n Add %s ! Please Use List Button to find it", waittop.UserName, waittop.UserName))
 						msg.ReplyMarkup = numericKeyboard
 						if _, err = bot.Send(msg); err != nil {
-							fmt.Println(err)
+							log.Error(err)
 						}
 					}
 				} else {
 					msg := tgbotapi.NewMessage(update.Message.Chat.ID, "暂未支持该输入\nDon't Support Yet")
 					if _, err = bot.Send(msg); err != nil {
-						fmt.Println(err)
+						log.Error(err)
 					}
 				}
 			}
@@ -133,7 +133,7 @@ func main() {
 			// a message with the data received.
 			callback := tgbotapi.NewCallback(update.CallbackQuery.ID, update.CallbackQuery.Data)
 			if _, err := bot.Request(callback); err != nil {
-				fmt.Println(err)
+				log.Error(err)
 				continue
 			}
 			if update.CallbackData() == "LIST" {
@@ -154,14 +154,14 @@ func main() {
 					msg.ParseMode = tgbotapi.ModeMarkdown
 				}
 				if _, err := bot.Send(msg); err != nil {
-					fmt.Println(err)
+					log.Error(err)
 					continue
 				}
 			} else if update.CallbackData() == "Home" {
 				msg := tgbotapi.NewEditMessageText(update.CallbackQuery.Message.Chat.ID, update.CallbackQuery.Message.MessageID, "欢迎食用DuckDuckGOEmailBOT\n,可以借助本BOT创建匿名邮箱，请先到DuckDuckGoEmail先行注册")
 				msg.ReplyMarkup = &numericKeyboard
 				if _, err := bot.Send(msg); err != nil {
-					fmt.Println(err)
+					log.Error(err)
 					continue
 				}
 			} else {
@@ -171,14 +171,14 @@ func main() {
 				if token.Token != "" {
 					email, err := Generate(token)
 					if err != nil {
-						fmt.Println(err)
+						log.Error(err)
 					} else {
 					}
 					msg.Text = fmt.Sprintf("生成的邮箱是 `%s`", email)
 					msg.ParseMode = tgbotapi.ModeMarkdown
 				}
 				if _, err := bot.Send(msg); err != nil {
-					fmt.Println(err)
+					log.Error(err)
 					continue
 				}
 
