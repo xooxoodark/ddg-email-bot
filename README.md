@@ -27,7 +27,7 @@ export TELEGRAM_APITOKEN=YOUR_TOKEN
 ./ddg-email-bot
 ```
 
-## Referenced Repo and Special Thanks for them
+## Referenced Repo and Special Thanks To Them
 
 [DDG Email Panel](https://github.com/whatk233/ddg-email-panel)
 
