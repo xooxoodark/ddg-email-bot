@@ -1,6 +1,6 @@
 # DuckDuckGo Email Bot
 
-![GitHub Repo stars](https://github.com/xooxoodark/ddg-email-bot?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/xooxoodark/ddg-email-bot?style=social)
 
 ## Features
 
