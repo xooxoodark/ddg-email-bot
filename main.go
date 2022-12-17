@@ -59,7 +59,7 @@ func main() {
 			}
 			switch update.Message.Command() {
 			case "start":
-				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "欢迎食用DuckDuckGOEmailBOT\n,可以借助本BOT创建匿名邮箱，请先到DuckDuckGoEmail先行注册")
+				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "欢迎食用DuckDuckGOEmailBOT\n,可以借助本BOT创建匿名邮箱，请先到DuckDuckGoEmail https://duckduckgo.com/email 先行注册 \n Thanks for Using This Bot, U might to get a username from https://duckduckgo.com/email firstly")
 				msg.ReplyMarkup = numericKeyboard
 				if _, err = bot.Send(msg); err != nil {
 					log.Error(err)
